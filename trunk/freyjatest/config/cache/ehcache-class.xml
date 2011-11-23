@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="true"
+	monitoring="autodetect" dynamicConfig="true">
+
+	<!-- <diskStore path="java.io.tmpdir\\class" /> -->
+
+
+
+	<!-- -->
+
+	<cache name="query_cache" timeToLiveSeconds="3600" 
+		eternal="false" overflowToDisk="false">
+	</cache>
+
+	<!-- 需要分布式同步的缓存 -->
+	<!-- -->
+	<defaultCache eternal="false" timeToLiveSeconds="1200"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LRU">
+	</defaultCache>
+
+
+	<cache name="org.hibernate.cache.StandardQueryCache" eternal="false"
+		timeToLiveSeconds="1200" overflowToDisk="false">
+	</cache>
+
+	<cache name="org.freyja.bean.User" timeToLiveSeconds="3600"
+		eternal="false" overflowToDisk="false">
+	</cache>
+
+
+	<cache name="org.freyja.bean.UserProperty" timeToLiveSeconds="3600"
+		eternal="false" overflowToDisk="false">
+	</cache>
+
+	<cache name="org.freyja.bean.Property" eternal="true"
+		overflowToDisk="false" />
+</ehcache>
